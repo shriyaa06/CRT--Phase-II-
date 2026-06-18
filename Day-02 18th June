@@ -1,0 +1,52 @@
+//Program 1
+//Two sum - II (sorted input) (Leetcode 167)
+
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int left=0;
+        int right=numbers.size()-1;
+                 
+        while(left<right){
+        int sum=numbers[left]+numbers[right];
+        if(sum==target){
+            return{left+1,right+1};
+        }else if(sum>target){
+            right--;
+        }else{
+            left++;
+        }
+    }
+    return{-1,-1};
+    }
+};
+
+
+//Program 2
+//Majority Element (Leetcode 169)
+
+//BRUTEFORCE TECHNIQUE where(time complexity=O(n2)) [2 pointer approach]
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int n=nums.size();
+        for(int i=0;i<n;i++){
+            int count =0;
+            for(int j=0;j<n;j++){
+                if(nums[i]==nums[j]){
+                    count++;
+                }
+            }
+            if(count>n/2){
+                return nums[i];
+            }
+        }
+        return -1;
+    }
+};
+
+//OPTIMIZED TECHNIQUE where(time complexity=O(n log n)) [sorting approach]
+
+
