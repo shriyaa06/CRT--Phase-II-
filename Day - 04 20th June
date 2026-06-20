@@ -1,0 +1,66 @@
+//Program 1
+//Process string with special operations I (leetcode 3612)
+
+
+class Solution {
+public:
+    string result;
+    string processStr(string s) {
+        for(char i:s){
+            if(islower(i)){
+                result.push_back(i);
+            }else if(i=='#'){
+                result=result+result;
+            }else if(i=='%'){
+                reverse(result.begin(),result.end());
+            }else if(i=='*'){
+                if(!result.empty()){
+                    result.pop_back();
+                }
+            }
+        }
+        return result;
+    }
+};
+
+
+//Program 2
+//Binary Search
+
+
+#include<iostream>
+using namespace std;
+#include <vector>
+
+int binarySearch(vector<int> &arr,int target){
+    int low=0;
+    int high=arr.size()-1;
+    
+    while(low<=high){
+        int mid=low+(high-low)/2;
+        
+        if(arr[mid]==target){
+            return mid;
+        }
+        
+        if(arr[mid]>target){
+            high=mid-1;
+        }else{
+            low=mid+1;
+        }
+        
+    }
+    return -1;
+}
+
+int main(){
+    vector<int> arr ={10,20,30,40,50,60};
+    int target =50;
+    int result=binarySearch(arr,target);
+    if(result==-1){
+        cout<<"Element not found";
+    }else{
+        cout<<"Element found at index: "<<result;
+    }
+    return 0;
+}
