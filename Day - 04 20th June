@@ -64,3 +64,57 @@ int main(){
     }
     return 0;
 }
+
+
+//Program 3
+//Ceil in a sorted array(GEEKS FOR GEEKS)
+
+
+class Solution {
+  public:
+    int findCeil(vector<int>& arr, int x) {
+        // code here
+        int low=0;
+        int high=arr.size()-1;
+        int ans=-1;
+        
+        while(low<=high){
+            int mid= low +high-low/2;
+            
+            if(arr[mid]>=x){
+                ans=mid;
+                high=mid-1;
+            }else{
+                low=mid+1;
+            }
+        }
+        return ans;
+    }
+};
+
+
+//Program 4
+//Find peak element(LEETCODE 162)
+
+
+class Solution {
+public:
+    int findPeakElement(vector<int>& nums) {
+        int low=0;
+        int high=nums.size()-1;
+
+        while(low<high){
+            int mid=low+(high-low)/2;
+
+             if(nums[mid]>nums[mid+1]){
+                high= mid;
+            }else{
+                low=mid+1;
+            }
+        }
+        return low;
+    }
+};
+
+
+
