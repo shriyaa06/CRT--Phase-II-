@@ -1,0 +1,96 @@
+//Program 1
+//Delete the middle of linked list (LEETCODE 2095)
+
+
+class Solution {
+public:
+    ListNode* deleteMiddle(ListNode* head) {
+        if(head == nullptr || head->next == nullptr){
+            return nullptr;
+        }
+        ListNode* slow=head;
+        ListNode* fast=head;
+        ListNode* prev=head;
+
+        while(fast!=nullptr && fast->next!=nullptr){
+            fast=fast->next->next;
+            prev = slow;
+            slow=slow->next;
+        }      
+
+        prev->next=slow->next;
+        return head;
+    }
+}; 
+
+
+//Program 2
+//Linketlist Cycle
+
+
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+
+        ListNode* slow=head;
+        ListNode* fast=head;        
+
+        while(fast!=nullptr && fast->next!=nullptr){
+            slow=slow->next;
+            fast=fast->next->next;
+            
+            if(slow==fast){
+                return true;
+            }            
+        }
+        return false;        
+    }
+}; 
+    
+        
+//Program 3
+//LinkedList Cycle 2(LEETCODE 142)
+
+
+class Solution {
+public:
+    ListNode *detectCycle(ListNode *head) {
+        
+        ListNode* slow=head;
+        ListNode* fast=head;        
+
+        while(fast!=nullptr && fast->next!=nullptr){
+            slow=slow->next;
+            fast=fast->next->next;
+            
+            if(slow==fast){
+                slow=head;
+
+                while(slow!=fast){
+                    slow=slow->next;
+                    fast=fast->next;
+                }
+            return slow;
+        }
+    }
+    return nullptr;
+    }
+};
+
+//Program 4
+//Intersection of 2 linked lists (LEETCODE 160)
+
+
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode* A=headA;
+        ListNode* B=headB;
+
+        while(A!=B){
+        A=(A==nullptr)? headB : A->next;
+        B=(B==nullptr)? headA : B->next;
+        }
+        return A;
+    }
+};
