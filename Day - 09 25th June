@@ -1,0 +1,23 @@
+//Program 1
+// Trees traversal (pre+post+in)
+
+
+//Program 2
+//Maximum Depth of Binary Tree (LEETCODE 104)
+
+
+class Solution {
+public:
+    int maxDepth(TreeNode* root) {
+        if(root==nullptr){
+            return 0;
+        }
+        int lh=maxDepth(root->left);
+        int rh=maxDepth(root->right);
+        
+        return max(lh,rh)+1;    
+    }
+};
+
+
+
