@@ -20,4 +20,23 @@ public:
 };
 
 
+//Program 3
+//Minimum Depth of Binary Tree(LEETCODE 111)
 
+
+class Solution {
+public:
+    int minDepth(TreeNode* root) {
+        if(root==nullptr){
+            return 0;
+        }
+
+        int lh=minDepth(root->left);
+        int rh=minDepth(root->right);
+        
+        if(lh==0||rh==0){
+            return lh+rh+1;
+        }
+        return min(lh,rh)+1;
+    }
+};
