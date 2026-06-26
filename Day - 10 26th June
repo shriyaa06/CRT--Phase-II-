@@ -19,6 +19,54 @@ public:
 
 
 //Program 2
-//
+//Symmetric Tree(LEETCODE 101)
+
+
+class Solution {
+public:
+    bool traversal(TreeNode* left,TreeNode* right) {
+        if(left==nullptr && right==nullptr){
+            return true;
+        }
+        if(left==nullptr || right==nullptr){
+            return false;
+        }                
+        if(left->val!=right->val){
+            return false;
+        }
+        return traversal(left->left,right->right)&& traversal(left->right,right->left);
+    }
+    bool isSymmetric(TreeNode* root){
+        if(root==nullptr){
+            return true;
+        }
+        return traversal(root->right,root->left);
+    }
+};
+
+
+//Program 3
+//Diameter of Binary Tree(LEETCODE 543)
+
+
+class Solution {
+public:
+int ans=0;
+    int traversal(TreeNode* root){
+        if(root==nullptr){
+            return 0;
+    }
+    int lh=traversal(root->left);
+    int rh=traversal(root->right);
+
+    ans=max(ans,lh+rh);
+    return max(lh,rh)+1;
+    }
+
+    int diameterOfBinaryTree(TreeNode* root) {
+        traversal (root);
+        return ans;
+    }
+};
 
 
