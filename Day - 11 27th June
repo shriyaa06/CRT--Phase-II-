@@ -1,0 +1,22 @@
+//Program 1
+//Path Sum (LEETCODE 112)
+
+
+class Solution {
+public:
+    bool hasPathSum(TreeNode* root, int targetSum) {
+        if(root==nullptr){
+            return false;
+        }
+        if (root->right==nullptr && root->left==nullptr){
+                return targetSum - root->val==0;
+            }
+            targetSum=targetSum-root->val;
+            return hasPathSum(root->left,targetSum) || hasPathSum(root->right,targetSum);
+    }
+};
+
+
+//Program 2
+//
+
