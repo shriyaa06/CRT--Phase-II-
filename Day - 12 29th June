@@ -1,0 +1,26 @@
+//Program 1
+//DFS Traversal of Graph(GFG)
+
+
+class Solution {
+  public:
+  
+  void dfsHelper(vector<vector<int>>& adj,vector<bool>& visited,vector<int>& ans, int node){
+      visited[node]=true;
+      ans.push_back(node);
+      for(int adjacentNode: adj[node]){
+          if(!visited[adjacentNode]){
+              dfsHelper(adj,visited,ans,adjacentNode);
+          }
+      }
+  }
+  
+    vector<int> dfs(vector<vector<int>>& adj) {
+        // Code here
+        int n=adj.size();
+        vector<int> ans;
+        vector<bool> visited(n,false);
+        dfsHelper(adj,visited,ans,0);
+        return ans;
+    }
+};
