@@ -1,5 +1,10 @@
 //Program 1
 //DFS Traversal of Graph(GFG)
+// TC=O(v+e)
+v=vertices/nodes
+e=edges
+//Sc= O 3(n)= O(n)
+visited array + ans vector + recursive stack
 
 
 class Solution {
@@ -24,3 +29,15 @@ class Solution {
         return ans;
     }
 };
+
+
+//Program 2
+//Number of Provinces(LEETCODE 547)
+
+
+
+
+
+
+
+
