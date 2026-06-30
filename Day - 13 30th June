@@ -33,4 +33,22 @@ class Solution {
 
 
 //Program 2
-//
+//Consecutive 1's not allowed (GFG) (Time Limit Exceed Error)
+
+
+class Solution {
+  public:
+    int countStrings(int n) {
+        // code here
+        if(n==0){
+            return 1;
+        }
+        if(n==1){
+            return 2;
+        }
+        if(n==2){
+            return 3;
+        }
+        return countStrings(n-1)+countStrings(n-2);
+    }
+};
