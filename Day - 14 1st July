@@ -18,4 +18,23 @@ public:
 
 
 //Program 2
-//
+//House Robber(LEETCODE 198) (TLE ERROR)
+
+class Solution {
+public:
+    int rob(vector<int>& nums,int index) {
+        //base condition
+        if(index>=nums.size()){
+            return 0;
+        }
+
+        int chor1=nums[index]+rob(nums,index+2);
+        int notChor=rob(nums,index+1);
+
+        return max(chor1,notChor);
+        }
+
+        int rob(vector<int> & nums){
+            return rob(nums,0);
+        }
+};
